@@ -12,10 +12,8 @@ var personal_routes = require('./routes/personal.routes');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-//Cors
 
 // Configurar cabeceras y cors
-
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -24,7 +22,6 @@ app.use((req, res, next) => {
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
     next();
 });
-
 
 //Rutas
 app.use('/api', personal_routes);
