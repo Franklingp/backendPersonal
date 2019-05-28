@@ -13,7 +13,7 @@ mongoose.connect('mongodb://localhost:27017/backend', {useNewUrlParser: true})
 			console.log("La base de datos se ha enlazado correctamente");
 
 			app.listen(port, () => {
-				console.log("Servidor corriendo exitosamente en la url: localhost:"+port);
+				console.log("Servidor corriendo exitosamente en la url: http://localhost:"+port);
 			});
 		})
 		.catch(error => console.log(error));
