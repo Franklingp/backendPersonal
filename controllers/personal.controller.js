@@ -60,7 +60,7 @@ var controller = {
 	// metodo para obtener todo el personal que tengo registrado en mi base de datos
 
 	getPersonal: function(req, res){
-		Personal.find((error, personalRes) =>{
+		Personal.find({}).sort("name").exec((error, personalRes) =>{
 			if(error){
 				return res.status(500).send({ message: "Ha ocurrido un error al buscar los empleados"});
 			}
