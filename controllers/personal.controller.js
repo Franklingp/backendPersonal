@@ -77,7 +77,7 @@ var controller = {
 	deleteEmployee: function(req, res){
 		var employeeId = req.params.id;
 
-		Personal.findByIdAndRemove(employeeId, (err, deleted) => {
+		Personal.findByIdAndRemove(employeeId, {new:true, useFindAndModify:false}, (err, deleted) => {
 			if(err){
 				return res.status(500).send({ message: "Ha ocurrido un error al intentar eliminar el empleado"});
 			}
@@ -95,7 +95,7 @@ var controller = {
 		var employeeId = req.params.id;
 		var newEmployee = req.body;
 
-		Personal.findByIdAndUpdate(employeeId, newEmployee, {new:true}, (err, updated) => {
+		Personal.findByIdAndUpdate(employeeId, newEmployee, {new:true, useFindAndModify:false}, (err, updated) => {
 			if(err){
 				return res.status(500).send({ message: "Ha ocurrido un error al intentar actualizar el documento"});
 			}
